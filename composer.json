@@ -1,12 +1,13 @@
 {
-    "name": "sparav/applicationinsights",
-    "description": "Application Insights for Microsoft",
-    "type": "MIT",
-    "license": "MIT",
-    "minimum-stability": "stable",
+
     "autoload": {
         "psr-4": {
             "Sparav\\ApplicationInsights\\": "src/"
         }
-    }
+    },
+    "name": "sparav/applicationinsights",
+    "description": "Sparav Customer Api",
+    "type": "MIT",
+    "license": "MIT",
+    "minimum-stability": "stable"
 }
