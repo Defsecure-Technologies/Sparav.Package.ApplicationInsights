@@ -1,7 +1,7 @@
 {
     "name": "sparav/applicationinsights",
     "description": "Application Insights for Microsoft",
-    "type": "composer-plugin",
+    "type": "MIT",
     "license": "MIT",
     "minimum-stability": "stable",
     "autoload": {
@@ -9,5 +9,4 @@
             "Sparav\\ApplicationInsights\\": "src/"
         }
     },
-    "require": {}
 }
