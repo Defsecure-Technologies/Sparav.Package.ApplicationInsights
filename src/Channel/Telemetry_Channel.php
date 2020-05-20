@@ -148,9 +148,12 @@ class Telemetry_Channel
         Telemetry_Context $telemetryContext,
         $startTime = null)
     {
+
+
         // If no data or context provided, we just return to not cause upstream issues as a result of telemetry
         if ($data == NULL || $telemetryContext == NULL)
         {
+            echo "gg";
             return;
         }
 
@@ -177,6 +180,8 @@ class Telemetry_Channel
                     $telemetryContext->getSessionContext()->jsonSerialize(),
                     $telemetryContext->getUserContext()->jsonSerialize(),
                     $telemetryContext->getInternalContext()->jsonSerialize()));
+
+        $envelope->getVer();
 
         // Merge properties from global context to local context
         $contextProperties = $telemetryContext->getProperties();

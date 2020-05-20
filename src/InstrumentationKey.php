@@ -18,7 +18,7 @@ class InstrumentationKey
 
     protected function setInstrumentationKey()
     {
-        $instrumentationKey = config('MSApplicationInsightsLaravel.instrumentationKey');
+        $instrumentationKey = env('MS_INSTRUMENTATION_KEY');
 
         if ( ! empty($instrumentationKey)
             && $this->checkInstrumentationKeyValidity($instrumentationKey))

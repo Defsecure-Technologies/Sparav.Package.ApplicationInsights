@@ -3,6 +3,8 @@
 namespace Sparav\ApplicationInsights\Handlers;
 
 use Exception;
+use Illuminate\Container\Container;
+use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Sparav\ApplicationInsights\MSApplicationInsightsHelpers;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -16,11 +18,10 @@ class MSApplicationInsightsExceptionHandler extends ExceptionHandler
      */
     private $msApplicationInsightsHelpers;
 
-
-    public function __construct(MSApplicationInsightsHelpers $msApplicationInsightsHelpers, LoggerInterface $log)
+    public function __construct(MSApplicationInsightsHelpers $msApplicationInsightsHelpers, ContainerInterface $log)
     {
-        $this->msApplicationInsightsHelpers = $msApplicationInsightsHelpers;
-        parent::__construct($log);
+       $this->msApplicationInsightsHelpers = $msApplicationInsightsHelpers;
+       parent::__construct($log);
     }
 
     /**
@@ -41,7 +42,7 @@ class MSApplicationInsightsExceptionHandler extends ExceptionHandler
             }
         }
 
-   //     $this->msApplicationInsightsHelpers->trackException($e);
+        $this->msApplicationInsightsHelpers->trackException($e);
 
         return parent::report($e);
     }

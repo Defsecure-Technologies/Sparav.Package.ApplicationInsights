@@ -17,7 +17,6 @@ class MSApplicationInsightsServer extends InstrumentationKey
 
         if (isset($this->instrumentationKey))
         {
-
             $this->telemetryClient = $telemetryClient;
             $this->telemetryClient->getContext()->setInstrumentationKey($this->instrumentationKey);
         }
