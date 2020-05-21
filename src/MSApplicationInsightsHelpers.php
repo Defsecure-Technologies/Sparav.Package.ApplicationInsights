@@ -78,7 +78,7 @@ class MSApplicationInsightsHelpers
      *
      * @param Exception $e
      */
-    public function trackException(Exception $e)
+    public function trackException($e)
     {
         if ($this->telemetryEnabled()) {
             $this->msApplicationInsights->telemetryClient->trackException($e,
@@ -97,7 +97,7 @@ class MSApplicationInsightsHelpers
      *
      * @return array|null
      */
-    private function getRequestPropertiesFromException(Exception $e)
+    private function getRequestPropertiesFromException($e)
     {
         foreach ($e->getTrace() as $item)
         {
