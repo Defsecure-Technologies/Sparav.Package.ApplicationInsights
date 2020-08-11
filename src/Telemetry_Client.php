@@ -209,8 +209,7 @@ class Telemetry_Client
             $properties[$key] = $value;
         }
 
-        $properties['jsonData'] = Request::json();
-
+        $properties['jsonData'] =  print_r(\Illuminate\Support\Facades\Request::getContent(), true);
 
         if ($properties != NULL)
         {
