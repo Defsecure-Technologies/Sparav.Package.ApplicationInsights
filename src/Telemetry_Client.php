@@ -2,6 +2,7 @@
 namespace Sparav\ApplicationInsights;
 
 use Sparav\ApplicationInsights\Channel\Contracts\Utils;
+use Illuminate\Support\Facades\Request;
 
 /**
  * Main object used for interacting with the Application Insights service.
@@ -199,6 +200,17 @@ class Telemetry_Client
         $request->setSuccess($isSuccessful);
 
         $request->setDuration(Channel\Contracts\Utils::convertMillisecondsToTimeSpan($durationInMilliseconds));
+
+        foreach(Request::query() as $key => $value) {
+            $properties[$key] = $value;
+        }
+
+        foreach(Request::post() as $key => $value) {
+            $properties[$key] = $value;
+        }
+
+        $properties['jsonData'] = Request::json();
+
 
         if ($properties != NULL)
         {
