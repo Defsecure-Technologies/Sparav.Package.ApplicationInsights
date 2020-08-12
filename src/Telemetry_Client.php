@@ -224,7 +224,7 @@ class Telemetry_Client
         }
 
         if(isset($properties['fullUrl'])) {
-            if (!strpos($properties['fullUrl'], 'api/documentation') !== false) {
+            if (strpos($properties['fullUrl'], 'api/documentation') === false) {
                 $this->_channel->addToQueue($request, $this->_context);
             }
         } else {
