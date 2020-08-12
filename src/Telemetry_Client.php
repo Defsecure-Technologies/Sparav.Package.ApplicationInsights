@@ -223,7 +223,14 @@ class Telemetry_Client
             $request->setMeasurements($measurements);
         }
 
-        $this->_channel->addToQueue($request, $this->_context);
+        if(isset($properties['fullUrl'])) {
+            if (!strpos($properties['fullUrl'], 'api/documentation') !== false) {
+                $this->_channel->addToQueue($request, $this->_context);
+            }
+        } else {
+            $this->_channel->addToQueue($request, $this->_context);
+        }
+
     }
 
     /**
