@@ -161,9 +161,9 @@ class Telemetry_Client
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
      */
-    public function trackRequest($name, $url, $startTime, $durationInMilliseconds = 0, $httpResponseCode = 200, $isSuccessful = true, $properties = NULL, $measurements = NULL )
+    public function trackRequest($name, $url, $startTime, $durationInMilliseconds = 0, $httpResponseCode = 200, $isSuccessful = true, $properties = NULL, $measurements = NULL, $responseContent = NULL )
     {
-        $this->endRequest($this->beginRequest($name, $url, $startTime), $durationInMilliseconds, $httpResponseCode, $isSuccessful, $properties, $measurements );
+        $this->endRequest($this->beginRequest($name, $url, $startTime), $durationInMilliseconds, $httpResponseCode, $isSuccessful, $properties, $measurements, $responseContent );
     }
 
     /**
@@ -194,7 +194,7 @@ class Telemetry_Client
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
      */
-    public function endRequest( Channel\Contracts\Request_Data $request, $durationInMilliseconds = 0, $httpResponseCode = 200, $isSuccessful = true, $properties = NULL, $measurements = NULL  )
+    public function endRequest( Channel\Contracts\Request_Data $request, $durationInMilliseconds = 0, $httpResponseCode = 200, $isSuccessful = true, $properties = NULL, $measurements = NULL, $response = NULL  )
     {
         $request->setResponseCode($httpResponseCode);
         $request->setSuccess($isSuccessful);
@@ -210,6 +210,8 @@ class Telemetry_Client
         }
 
         $properties['jsonData'] =  print_r(\Illuminate\Support\Facades\Request::getContent(), true);
+
+        $properties['responseData'] = $response;
 
         if ($properties != NULL)
         {

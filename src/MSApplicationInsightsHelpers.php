@@ -64,8 +64,11 @@ class MSApplicationInsightsHelpers
                     $this->getResponseCode($response),
                     $this->isSuccessful($response),
                     $this->getRequestProperties($request),
-                    $this->getRequestMeasurements($request, $response)
+                    $this->getRequestMeasurements($request, $response),
+                    $response->content()
+
                 );
+
                 try {
                     $this->msApplicationInsights->telemetryClient->flush();
                 } catch (RequestException $e) {}
@@ -197,6 +200,9 @@ class MSApplicationInsightsHelpers
         return ( ! empty($measurements)) ? $measurements : null;
     }
 
+    public function getRequestContent() {
+
+    }
 
     /**
      * Estimate the time spent viewing the previous page

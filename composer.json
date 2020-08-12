@@ -5,7 +5,7 @@
             "Sparav\\ApplicationInsights\\": "src/"
         }
     },
-    "version": "1.0.2",
+    "version": "1.0.3",
     "name": "sparav/applicationinsights",
     "description": "Sparav Customer Api",
     "type": "MIT",
