@@ -5,6 +5,7 @@ use Sparav\ApplicationInsights\Channel\Contracts\Data;
 use Sparav\ApplicationInsights\Channel\Contracts\Data_Interface;
 use Sparav\ApplicationInsights\Channel\Contracts\Envelope;
 use Sparav\ApplicationInsights\Channel\Contracts\Utils;
+use Sparav\ApplicationInsights\Telemetry_Context;
 
 /**
  * Responsible for managing a queue of telemetry items to send and sending them.
@@ -153,7 +154,6 @@ class Telemetry_Channel
         // If no data or context provided, we just return to not cause upstream issues as a result of telemetry
         if ($data == NULL || $telemetryContext == NULL)
         {
-            echo "gg";
             return;
         }
 
