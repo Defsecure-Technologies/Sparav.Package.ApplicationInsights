@@ -1,5 +1,5 @@
 <?php
-namespace Sparav\ApplicationInsights;
+namespace Sparav\ApplicationInsights\Channel;
 
 use Sparav\ApplicationInsights\Channel\Contracts\Data;
 use Sparav\ApplicationInsights\Channel\Contracts\Data_Interface;

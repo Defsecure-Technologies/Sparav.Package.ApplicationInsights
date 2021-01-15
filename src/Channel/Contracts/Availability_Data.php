@@ -1,5 +1,5 @@
 <?php
-namespace Sparav\ApplicationInsights;
+namespace Sparav\ApplicationInsights\Channel\Contracts;
 /**
 *
 * THIS FILE IS AUTO-GENERATED.
