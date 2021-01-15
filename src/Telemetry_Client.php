@@ -3,6 +3,7 @@ namespace Sparav\ApplicationInsights;
 
 use Sparav\ApplicationInsights\Channel\Contracts\Utils;
 use Illuminate\Support\Facades\Request;
+use Sparav\ApplicationInsights\Channel\Telemetry_Channel;
 
 /**
  * Main object used for interacting with the Application Insights service.
