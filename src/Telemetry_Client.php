@@ -10,6 +10,7 @@ use Sparav\ApplicationInsights\Channel\Telemetry_Channel;
  */
 class Telemetry_Client
 {
+
     /**
      * The telemetry context this client will use
      * @var \ApplicationInsights\Telemetry_Context
@@ -203,10 +204,20 @@ class Telemetry_Client
         $request->setDuration(Channel\Contracts\Utils::convertMillisecondsToTimeSpan($durationInMilliseconds));
 
         foreach(Request::query() as $key => $value) {
+
+            if($key == "creditCardNumber") {
+                $value = "***";
+            }
+
             $properties[$key] = $value;
         }
 
         foreach(Request::post() as $key => $value) {
+
+            if($key == "creditCardNumber") {
+                $value = "***";
+            }
+
             $properties[$key] = $value;
         }
 
